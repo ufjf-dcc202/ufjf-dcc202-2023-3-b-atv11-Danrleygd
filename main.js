@@ -11,7 +11,9 @@ btnAdicionar.addEventListener("click", adicionaItemDaEntrada);
 
 function adicionaItemDaEntrada() {
   const valor = pEntrada.textContent;
+  olItens.innerHTML = "";
   adicionaNaLista(valor);
+  pEntrada.textContent ="";
   atualizarListaOrdenada();
 }
 
