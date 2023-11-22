@@ -1,4 +1,4 @@
-import { adicionaNaLista, getLista } from "./src/lista.js";
+import { adicionaNaLista, getLista, limpaLista } from "./src/lista.js";
 
 const pEntrada = document.querySelector("#entrada");
 const btnAdicionar = document.querySelector("#adicionar");
@@ -8,12 +8,13 @@ const olItens = document.querySelector("#itens");
 atualizarListaOrdenada();
 
 btnAdicionar.addEventListener("click", adicionaItemDaEntrada);
+btnLimpar.addEventListener("click", limparListaOrdenada);
 
 function adicionaItemDaEntrada() {
   const valor = pEntrada.textContent;
   olItens.innerHTML = "";
   adicionaNaLista(valor);
-  pEntrada.textContent ="";
+  pEntrada.textContent = "";
   atualizarListaOrdenada();
 }
 
@@ -28,4 +29,9 @@ function adicionaElementoNaListaOrdenada(texto) {
   const li = document.createElement("li");
   li.textContent = texto;
   olItens.appendChild(li);
+}
+
+function limparListaOrdenada() {
+  limpaLista();
+  atualizarListaOrdenada();
 }
